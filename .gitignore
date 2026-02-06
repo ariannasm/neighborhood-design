@@ -1,6 +1,9 @@
 # Data files - too large for GitHub
 data/raw/
 
+# Restricted data - cannot redistribute
+data/cannot-share/
+
 # System files
 .DS_Store
 *.DS_Store

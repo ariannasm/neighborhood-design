@@ -7,6 +7,14 @@
 #   - Talen (2022) garden suburbs
 #   - USHC historical projects
 #
+# DATA AVAILABILITY NOTE:
+#   This script requires data that cannot be redistributed.
+#   You must obtain the following files from the original authors
+#   and place them in data/raw/:
+#     - wheeler_join_neigh_bycentroid.csv  (Wheeler, 2008)
+#     - GSpoints.shp (+ .shx, .dbf, .prj) (Talen, 2022)
+#     - Table_TownPlanning.csv             (USHC historical records)
+#
 # Inputs (from data/raw):
 #   - wheeler_join_neigh_bycentroid.csv
 #   - footprints_blockgroup_msa.shp (for neighborhood centroids)
