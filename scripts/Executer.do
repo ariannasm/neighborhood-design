@@ -113,7 +113,9 @@ do "${scripts}/03-TableSI12.do"
 * ==================================================================
 
 * Figure SI1: GCD validation using existing typologies
-do "${scripts}/04-FigureSI1.do"
+* NOTE: Requires restricted data from Wheeler (2008) and Talen (2022).
+*       Run separately after obtaining the original data from the authors.
+* do "${scripts}/04-FigureSI1.do"
 
 * Figure SI2: Propensity score overlap
 do "${scripts}/04-FigureSI2.do"
@@ -129,6 +131,7 @@ do "${scripts}/04-FigureSI5.do"
 
 * Figure SI6: Location of validation neighborhoods
 * NOTE: Run separately in R: ${scripts}/04-FigureSI6.R
+*       Requires restricted data from Wheeler (2008) and Talen (2022).
 
 * Figure SI7: Distribution of neighborhoods by year built
 do "${scripts}/04-FigureSI7.do"
