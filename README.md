@@ -66,7 +66,3 @@ Three R scripts must be run separately in R/RStudio:
 - `02-Figure2.R` (Figure 2)
 - `04-FigureSI4.R` (Figure SI4)
 - `04-FigureSI6.R` (Figure SI6)
-
-## License
-
-This replication package is provided for academic use. Please cite the paper if you use this code or data.
