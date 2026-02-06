@@ -23,7 +23,7 @@ Replication/
 
 The `data/raw/` folder (~2.6 GB) is required to run the data construction scripts (Section 0) but is too large for GitHub. Download it from:
 
-**[INSERT DROPBOX LINK HERE]**
+**[Download raw data from Dropbox](https://www.dropbox.com/scl/fo/yhqp9irdrhzex2num5m6i/AF2Sl_hD8WHGb8cg2_Oogk4?rlkey=cnyxg81z3oo8ywf9wu3nb4ibl&dl=0)**
 
 After downloading, place the contents in `data/raw/` so that the folder structure matches the layout above.
 
