@@ -1,0 +1,577 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{cmap}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{graphicx,color,psfrag}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{kantlipsum}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem,kantlipsum}
+\usepackage{subfigure}
+\usepackage{longtable,lscape}
+\graphicspath{{}}
+\usepackage[export]{adjustbox}
+\usepackage{xspace}
+\geometry{left=0.5in,right=0.5in,top=0.5in,bottom=0.5in}
+%\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period]{caption}
+\usepackage{lineno} 
+%\linenumbers
+
+\newcommand\T{\rule{0pt}{2.6ex}} 
+\newcommand\Tnew{\rule{0pt}{3.6ex}}       % Top strut
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}} % Bottom strut
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\titleformat*{\section}{\centering\Large\sc}
+\titleformat*{\subsection}{\large\bf} 
+\renewcommand{\figurename}{\textsc{Figure}} 
+\renewcommand{\tablename}{\textsc{Table}}
+\newcommand*{\Num}{N\textsuperscript{o}\xspace}
+%\usepackage[margin=1in]{geometry}
+
+
+\begin{document}
+	
+	
+%%%%%%%%%%%%
+% TABLE 1 %
+%%%%%%%%%%%%	
+
+\begin{table}[!htt]
+	\centering
+	\caption{\sc{Summary Statistics}}
+	\label{table: summary statistics}
+	\resizebox{\textwidth}{!}{\begin{tabular}{L{8cm}C{4cm}C{4cm}C{4cm}}\toprule\toprule
+			&\multicolumn{3}{c}{\sc{Samples}}\\\cmidrule(r){2-4}
+			\vspace{0.2cm}
+			&\multicolumn{1}{c}{All Sample} & 	\multicolumn{1}{c}{High-GCD} & 	\multicolumn{1}{c}{Low-GCD}  \\
+			&\multicolumn{1}{c}{(N = 60,421)} & 	\multicolumn{1}{c}{(N = 12,084)} & 	\multicolumn{1}{c}{(N = 48,337)}  \\			
+			\\
+			&\multicolumn{3}{c}{\sc{Panel I. Outcomes}}\\\cmidrule(r){2-4}
+			\input{table_sum1_sg_log_interaction_norm.tex} 
+			\input{table_sum2_sg_log_interaction_norm.tex}
+			\input{table_sum1_sg_social_homedwell.tex} 
+			\input{table_sum2_sg_social_homedwell.tex}
+			\input{table_sum1_outcome_mob_GHG_all_trips.tex} 
+			\input{table_sum2_outcome_mob_GHG_all_trips.tex}
+			\\
+			&\multicolumn{3}{c}{\sc{Panel II. Controls}}\\\cmidrule(r){2-4}
+			\input{table_sum1_dist_2000_city_altpop_km.tex} 
+			\input{table_sum2_dist_2000_city_altpop_km.tex}
+			\input{table_sum1_controlsgeo_avg_elev.tex} 
+			\input{table_sum2_controlsgeo_avg_elev.tex}
+			\input{table_sum1_controlsgeo_avg_slope.tex} 
+			\input{table_sum2_controlsgeo_avg_slope.tex}
+			\input{table_sum1_controlsgeo_neigh_latitude.tex} 
+			\input{table_sum2_controlsgeo_neigh_latitude.tex}
+			\input{table_sum1_controlsgeo_neigh_longitude.tex} 
+			\input{table_sum2_controlsgeo_neigh_longitude.tex}
+			\input{table_sum1_Midwest.tex} 
+			\input{table_sum2_Midwest.tex}
+			\input{table_sum1_Northeast.tex} 
+			\input{table_sum2_Northeast.tex}
+			\input{table_sum1_South.tex} 
+			\input{table_sum2_South.tex}			
+			\input{table_sum1_West.tex} 
+			\input{table_sum2_West.tex}
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}											
+		\scriptsize \textsl{Note.?Columns 1?3 report the mean and standard deviation (in square brackets) for each variable. Column 1 reports these for the sample of urban neighborhoods (N=60,421). Column 2 is for neighborhoods classified as high GCD (top 20\% in the GCD distribution, N = 12,084), and column 3 is for low-GCD neighborhoods (remaining 80\%, N = 48,337). Panel I reports the primary outcomes analyzed in the study: social isolation; daily at home time during waking hours; and annual GHG emissions from residents' travel behavior. Panel II provides descriptive statistics for covariates used in the analysis.}	 
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE 2  %
+%%%%%%%%%%%%
+\begin{table}[!htt]
+	\centering
+	\caption{\sc{Estimates of Garden Design on Social and Environmental Outcomes}}
+	\label{table: all discrete}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{6.5cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV)&(V)\\
+			\cmidrule(r){2-3} \cmidrule(r){4-4}  \cmidrule(r){5-6} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{1}{c}{Propensity Score} & 	\multicolumn{2}{c}{IV Estimates}   \\
+			\vspace{0.5cm}
+			&\multicolumn{5}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-6}	
+			\input{table_sg_log_interaction_norm_garden_metric_osm_d_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-6}	
+			\input{table_sg_social_homedwell_garden_metric_osm_d_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-6}
+			\input{table_outcome_mob_GHG_all_trips_garden_metric_osm_d_us.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+			Geography &  & \checkmark & \checkmark & & \checkmark \\
+			State \& Metro Fixed Effects &  & \checkmark  & \checkmark & & \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.--- Columns 1-2 present OLS estimates of the relationship between GCD (using the discrete measure) and neighborhood outcomes. Column 1 controls for distance to city center using 5-km distance bin dummies. Column 2 adds geographic controls, including elevation, slope, soil type (ecological regions), latitude and longitude, as well as metropolitan area and state fixed effects. Column 3 reports estimates from propensity score matching using inverse propensity score reweighting, with propensity scores estimated using the covariates from Column 2. Columns 4?5 report IV estimates corresponding to Columns 1?2, using national design waves as instruments for GCD adoption. 
+			All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** are significant at the 5\% confidence level; and with * are significant at the 10\% confidence level. }			
+	\end{minipage}	
+\end{table}		
+
+\renewcommand{\thefigure}{SI\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{SI\arabic{table}}
+\setcounter{table}{0}
+
+%%%%%%%%%%%%
+% TABLE SI1  %
+%%%%%%%%%%%%
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{Complementary Outcomes}}
+	\label{table: complementary outcomes}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{7cm}C{3cm}C{3cm}C{3cm}C{3cm}C{3cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV) &(V)\\
+			\cmidrule(r){2-3} \cmidrule(r){4-4}  \cmidrule(r){5-6} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{1}{c}{Propensity Score} & 	\multicolumn{2}{c}{IV Estimates}   \\
+			\vspace{0.5cm}	
+			&\multicolumn{5}{c}{\sc{Panel I. Dependent Variable: Annual GHG Emissions from Commuting (metric tons)
+			}}\\\cmidrule(r){2-6}	
+			\input{table_mechanisms_outcome_mob_GHG_commute.tex}
+			\vspace{0.2cm}	
+			&\multicolumn{5}{c}{\sc{Panel II. Dependent Variable: Annual GHG Emissions from Non-Commuting (km)
+			}}\\\cmidrule(r){2-6}	
+			\input{table_mechanisms_outcome_mob_GHG_noncommute.tex}
+			\vspace{0.2cm}	
+			&\multicolumn{5}{c}{\sc{Panel III. Dependent Variable: \% of population owning 2+
+					automobiles
+			}}\\\cmidrule(r){2-6}	
+			\input{table_mechanisms_outcome_mob_Pct_AO2p.tex}
+			\vspace{0.2cm}	
+			&\multicolumn{5}{c}{\sc{Panel IV. Dependent Variable: Point of Interest Density
+			}}\\\cmidrule(r){2-6}	
+			\input{table_mechanisms_log_outcome_poi_total_norm.tex}
+			\vspace{0.2cm}	
+			&\multicolumn{5}{c}{\sc{Panel V. Dependent Variable: Walkscore
+			}}\\\cmidrule(r){2-6}	
+			\input{table_mechanisms_outcome_walk_index.tex} \\           
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+			Geography &  & \checkmark & \checkmark & & \checkmark \\
+			State \& Metro Fixed Effects &  & \checkmark  & \checkmark & & \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.---Table reports estimates of the relationship between GCD (using the discrete measure) and complementary neighborhood outcomes related to travel behavior and accessibility. Columns 1?2 present OLS estimates.  Column 1 controls for location using distance to the main city using 5-km distance bins. Column 2 adds geographic covariates including elevation, slope, ecological region, latitude, longitude, as well as metropolitan area and state fixed effects. Column 3 reports estimates from propensity score matching using inverse propensity score reweighting, with propensity scores estimated using the covariates from Column 2. Columns 4?5 report IV estimates corresponding to Columns 1?2, using national design waves as instruments for GCD adoption. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}								
+	\end{minipage}	
+\end{table}
+
+
+%%%%%%%%%%%%
+% TABLE SI2  %
+%%%%%%%%%%%%	
+\begin{table}[!htt]
+	\centering
+	\caption{\sc{OLS estimates controlling for demographics, historical covariates, and work-from-home.}}
+	\label{table: ols discrete robustness}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{5cm}C{2.5cm}C{2.5cm}C{2.5cm}C{2.5cm}C{2.5cm}C{2.5cm}}\toprule\toprule
+			\vspace{0.2cm}
+			&(I) &(II)&(III)&(IV) &(V) &(VI) \\
+			&\multicolumn{5}{c}{\sc{Panel I. Dependent Variable: Log Social isolation}}\\\cmidrule(r){2-7}
+			\input{table_sg_log_interaction_norm_ols_SI2.tex}
+			\vspace{0.5cm}
+			&\multicolumn{6}{c}{\sc{Panel III. Dependent Variable: Daily Time at Home (minutes)}}\\\cmidrule(r){2-7}
+			\input{table_sg_social_homedwell_ols_SI2.tex}
+			\vspace{0.5cm}
+			&\multicolumn{6}{c}{\sc{Panel II. Dependent Variable: Annual GHG (metric tons)}}\\\cmidrule(r){2-7}
+			\input{table_outcome_mob_GHG_all_trips_ols_SI2.tex}
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark   & \checkmark\\
+			Geography &  & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark\\
+			State \& Metro Fixed Effects &  & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark\\
+			Historical Building Density (1900)  &  & & \checkmark & \checkmark & \checkmark  & \checkmark\\
+			Demographics (2000) &  & &  & \checkmark & \checkmark   & \checkmark\\
+			Population Density (2000) &  & &  &  & \checkmark  & \checkmark \\
+			Work From Home (Tract level) &  & &  &  & & \checkmark  \\			
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.---Table reports OLS estimates of the relationship between GCD (using the discrete version) and neighborhood outcomes.  Column 1 controls for distance to the main city. Column 2 adds geographic controls, including elevation, slope, soil type (ecological regions), and latitude and longitude, as well as metro area and state fixed-effects. Column 3 further controls for historical building density in 1900 using the data from Leyk et al. \cite{leyk_2018}. Column 4 adds demographic controls from the 2000 Census, including the share of white population, share of married households, share of people with some college, median age of the population, and log per-capita income. Column 5 adds controls for population density in 2000. Column 6 adds tract-level work-from-home rates from the American Community Survey (2015-2019). Note that demographic composition and density may themselves be influenced by neighborhood design. When this is the case, these covariates constitute ``bad controls'' \cite{angrist_2009, angrist_2015}, and their inclusion can introduce bias in estimates of the effect of GCD. The similarity of estimates across columns 3-5 suggests that any such bias is small and that the true effect of GCD lies within this range. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}								
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE SI3  %
+%%%%%%%%%%%%
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{OLS and IV Estimates using the continuous measure of Garden City Design as explanatory variable.}}
+	\label{table: all continuous}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{6cm}C{3cm}C{3cm}C{3cm}C{3cm}C{3cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV)\\
+			\cmidrule(r){2-3} \cmidrule(r){4-5}  \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{2}{c}{IV Estimates} \\
+			\vspace{0.5cm}
+			&\multicolumn{4}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-5}	
+			\input{table_sg_log_interaction_norm_garden_metric_osm_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{4}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-5}	
+			\input{table_sg_social_homedwell_garden_metric_osm_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{4}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-5}
+			\input{table_outcome_mob_GHG_all_trips_garden_metric_osm_us.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark\\
+			Geography &  & \checkmark && \checkmark  \\
+			State \& Metro Fixed Effects &  & \checkmark &  & \checkmark\\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.--- Columns 1-2 present OLS estimates of the relationship between GCD (using the continuous measure) and neighborhood outcomes. Column 1 controls for location using distance to the main city within each MSA using 5-km distance bins. Column 2 adds geographic controls, including elevation, slope, soil type (ecological regions), latitude and longitude, and metro area and state fixed effects. Columns 3?4 replicate the specifications from Columns 1?2 but using national design waves as instruments for GCD adoption. The coefficients with *** are significant at the 1\% confidence level; with ** are significant at the 5\% confidence level; and with * are significant at the 10\% confidence level. Robust standard errors, adjusted for clustering by county, are in parentheses. OLS and IV estimates are weighted by neighborhood population.}								
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE SI4  %
+%%%%%%%%%%%%
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{Estimates of Garden Design on Social and Environmental Outcomes using First Principal Component of Four GCD Features}}
+	\label{table: pca robust}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{5cm}C{3cm}C{3cm}C{3cm}C{3cm}C{3cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV)&(V)\\
+			\cmidrule(r){2-3} \cmidrule(r){4-4}  \cmidrule(r){5-6} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{1}{c}{Propensity Score} & 	\multicolumn{2}{c}{IV Estimates}   \\
+			\vspace{0.5cm}
+			&\multicolumn{5}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-6}	
+			\input{table_sg_log_interaction_norm_garden_metric_pca_d_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-6}	
+			\input{table_sg_social_homedwell_garden_metric_pca_d_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-6}
+			\input{table_outcome_mob_GHG_all_trips_garden_metric_pca_d_us.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+			Geography &  & \checkmark & \checkmark & & \checkmark \\
+			State \& Metro Fixed Effects &  & \checkmark  & \checkmark & & \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.---Table replicates the baseline analysis reported on Table 2 using the first principal component of the four GCD features. Neighborhoods in the top 20\% of the PCA distribution are classified as ``high GCD.'' Columns 1?2 report OLS estimates controlling for distance to the city center (5-km distance bin dummies) and, in Column 2, additional geographic covariates including elevation, slope, ecological region, latitude, longitude, and metropolitan area and state fixed effects. Column 3 reports estimates from propensity score matching using inverse propensity score reweighting, with propensity scores estimated using the covariates from Column 2. Columns 4?5 report IV estimates corresponding to Columns 1?2, using national design waves as instruments for GCD adoption.  
+			All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}			
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE SI5  %
+%%%%%%%%%%%%	
+\begin{table}[!ht]
+	\centering 
+	\caption{\sc{Estimates of Garden Design on Social and Environmental Outcomes using Top Tercile of GCD Measure}}
+	\label{table: tertile robust}
+	
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{6.5cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV)&(V)\\
+			\cmidrule(r){2-3} \cmidrule(r){4-4}  \cmidrule(r){5-6} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{1}{c}{Propensity Score} & 	\multicolumn{2}{c}{IV Estimates}   \\
+			\vspace{0.5cm}
+			&\multicolumn{5}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-6}	
+			\input{table_sg_log_interaction_norm_garden_metric_osm_top33_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-6}	
+			\input{table_sg_social_homedwell_garden_metric_osm_top33_us.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-6}
+			\input{table_outcome_mob_GHG_all_trips_garden_metric_osm_top33_us.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+			Geography &  & \checkmark & \checkmark & & \checkmark \\
+			State \& Metro Fixed Effects &  & \checkmark  & \checkmark & & \checkmark \\
+			\\\bottomrule 
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.---Table replicates the baseline analysis reported in Table 2, classifying neighborhoods in the top 33\% of the GCD distribution as ``high GCD.'' Columns 1?2 report OLS estimates controlling for distance to the city center (5-km distance bin dummies) and, in Column 2, additional geographic covariates including elevation, slope, ecological region, latitude, longitude, and metropolitan area and state fixed effects. Column 3 reports estimates from propensity score matching using inverse propensity score reweighting, with propensity scores estimated using the covariates from Column 2. Columns 4?5 report IV estimates corresponding to Columns 1?2, using national design waves as instruments for GCD adoption. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}					
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE SI6  %
+%%%%%%%%%%%%
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{Balance of Covariates}}
+	\label{table: covariate balance}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{7cm}C{3cm}C{3cm}C{3cm}C{3cm}C{3cm}}\toprule\toprule
+			&\multicolumn{5}{c}{\sc{Samples}}\\\cmidrule(r){2-6}
+			\vspace{0.2cm}
+			& \begin{tabular}{c} High-GCD \\ Unweighted \end{tabular} 
+			& \begin{tabular}{c} Low-GCD \\ Unweighted \end{tabular} 
+			& \begin{tabular}{c} High-GCD \\ Weighted \end{tabular} 
+			& \begin{tabular}{c} Low-GCD \\ Weighted \end{tabular} 
+			& \begin{tabular}{c} T-test \end{tabular} \\
+			\\
+			&\multicolumn{5}{c}{\sc{Panel I. Controls}}\\\cmidrule(r){2-6}
+			\input{table_balance_sum1_dist_2000_city_altpop_km.tex} 
+			\input{table_balance_sum2_dist_2000_city_altpop_km.tex}
+			\input{table_balance_sum1_controlsgeo_avg_elev.tex} 
+			\input{table_balance_sum2_controlsgeo_avg_elev.tex}
+			\input{table_balance_sum1_controlsgeo_avg_slope.tex} 
+			\input{table_balance_sum2_controlsgeo_avg_slope.tex}
+			\input{table_balance_sum1_controlsgeo_neigh_latitude.tex} 
+			\input{table_balance_sum2_controlsgeo_neigh_latitude.tex}
+			\input{table_balance_sum1_controlsgeo_neigh_longitude.tex} 
+			\input{table_balance_sum2_controlsgeo_neigh_longitude.tex}
+			\input{table_balance_sum1_Midwest.tex} 
+			\input{table_balance_sum2_Midwest.tex}
+			\input{table_balance_sum1_Northeast.tex} 
+			\input{table_balance_sum2_Northeast.tex}
+			\input{table_balance_sum1_South.tex} 
+			\input{table_balance_sum2_South.tex}			
+			\input{table_balance_sum1_West.tex} 
+			\input{table_balance_sum2_West.tex}
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}											
+		\scriptsize \textsl{Note.---Table reports balance statistics for covariates used in the propensity score matching analysis. Columns 1 and 2 report unweighted means for high-GCD neighborhoods (top 20\% of the GCD distribution) and low-GCD neighborhoods (remaining 80\%), respectively. Columns 3 and 4 report means after inverse propensity score reweighting, using the same covariates as in Column 3 of Table 2. Column 5 reports two-sided t-tests of equality of means between high- and low-GCD neighborhoods after reweighting.}								
+	\end{minipage}	
+\end{table}		
+
+
+%%%%%%%%%%%%
+% TABLE SI7  %
+%%%%%%%%%%%%
+\begin{table}[!htt]
+	\centering
+	\caption{\sc{Variance decomposition of the prevalence of GCD across US neighborhoods.}}
+	\label{table: variance decomposition}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{9cm}C{2cm}C{2cm}
+			}\toprule\toprule
+			\vspace{0.2cm}
+			&(I) &(II)\\
+			\vspace{0.2cm}
+			&\multicolumn{2}{c}{\sc{Panel I. Dependent Variable: GCD Index (discrete)}}\\\cmidrule(r){2-3}
+			\input{table_variance_garden_metric_osm_d.tex}	
+			&\multicolumn{2}{c}{\sc{Panel II. Dependent Variable: GCD Index (continuous) }}\\\cmidrule(r){2-3}
+			\input{table_variance_garden_metric_osm.tex} \\
+			\textsl{Local covariates included:}\\
+			Distance &  \checkmark & \checkmark \\
+			Geography &  & \checkmark \\
+			State \& Metro Fixed Effects &  & \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.---} Table decomposes the variance in GCD. Panel I uses the discrete GCD measure, and Panel II uses the continuous GCD index. Column 1 reports the share of variance explained by development cohort indicators (5-year bins) and distance to the main city. Column 2 adds local geographic characteristics (elevation, slope, ecological region, latitude, and longitude), as well as metropolitan area and state fixed effects.  Reported values correspond to the proportion of variance explained ($R^2$) by each set of covariates, based on the regression model shown below. 
+		\begin{align*}
+			\textrm{Garden City Design}_{ims} = \textrm{Cohort}_{ims} + G(d(i)) + \eta_{m} + \nu_s + \rho\; X_{ims} + \upsilon_{ims}. 
+		\end{align*}
+		
+	\end{minipage}	
+\end{table}		
+
+
+%%%%%%%%%%%%
+% TABLE SI8  %
+%%%%%%%%%%%%
+\begin{table}[!htt]
+	\centering
+	\caption{\sc{OLS and IV estimates controlling for the role of residential zoning}}
+	\label{table: zoning}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{7.5cm}C{3.2cm}C{3.2cm}C{3.2cm}C{3.2cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV) \\
+			\cmidrule(r){2-3} \cmidrule(r){4-5} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{2}{c}{IV Estimates}  \\
+			\vspace{0.5cm}
+			&\multicolumn{4}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-5}	
+			\input{table_zoning_sg_log_interaction_norm.tex}
+			\vspace{0.2cm}
+			&\multicolumn{4}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-5}	
+			\input{table_zoning_sg_social_homedwell.tex}
+			\vspace{0.2cm}
+			&\multicolumn{4}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-5}
+			\input{table_zoning_outcome_mob_GHG_all_trips.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark \\
+			Geography &  \checkmark & \checkmark & \checkmark & \checkmark \\
+			Metro \& State Fixed Effects  &  \checkmark & \checkmark & \checkmark & \checkmark \\
+			Zoning  & & \checkmark && \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.--- Table reports estimates of the relationship between GCD (using the discrete measure) and  neighborhood outcomes, controlling for the prevalence of residential zoning.  
+			Columns 1-2 present OLS estimates. Column 1 controls for location using distance to the main city (5-km distance bins), geographic characteristics (elevation, slope, ecological region, latitude, and longitude), and metropolitan area and state fixed effects. Column 2 controls for the share of parcels zoned as residential within the neighborhood. Columns 3?4 replicate the specifications from Columns 1?2 using national design waves as instruments for GCD adoption. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}								
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE SI9  %
+%%%%%%%%%%%%
+
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{Robustness checks for IV estimates of the relationship between GCD and neighborhood outcomes}}
+	\label{table: iv robustness}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{5cm}C{3cm}C{3cm}C{3cm}C{3cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV) \\
+			\cmidrule(r){2-3} \cmidrule(r){4-5} \\
+			&\multicolumn{2}{c}{Leave State Out} &
+			\multicolumn{2}{c}{%
+				\begin{tabular}{@{}c@{}}
+					Controlling for Development Periods\\
+					(1810-1875; 1875--1950; 1950-2020)
+				\end{tabular}
+			} \\
+			\vspace{0.5cm}
+			&\multicolumn{4}{c}{\sc{Panel I. Dependent Variable: Log Social isolation}}\\\cmidrule(r){2-5}
+			\input{table_iv_robustness_sg_log_interaction_norm.tex}
+			&\multicolumn{4}{c}{\sc{Panel II. Dependent Variable: Daily Time at Home (minutes)}}\\\cmidrule(r){2-5}
+			\input{table_iv_robustness_sg_social_homedwell.tex}	
+			&\multicolumn{4}{c}{\sc{Panel III. Dependent Variable: Annual GHG (metric tons)}}\\\cmidrule(r){2-5}
+			\input{table_iv_robustness_outcome_mob_GHG_all_trips.tex}
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark &  \checkmark &  \checkmark &  \checkmark\\
+			Geography &  & \checkmark &  & \checkmark\\
+			State \& Metro Fixed Effects &  & \checkmark   &  & \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.--- Table reports IV estimates of the relationship between GCD and neighborhood outcomes. Columns 1?2 replicate the IV specifications from Columns 4?5 of Table 2 using a leave-one-state-out version of the instrument, constructed as the average GCD prevalence in all other states during the same development period. This approach exploits national design waves outside a neighborhood?s state as a source of exogenous variation in GCD adoption. Columns 3?4 replicate the same IV specifications but additionally control for broad development-period fixed effects (1810?1875, 1875?1950, and 1950?2020) to account for slow-moving changes in urban development practices. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}		
+	\end{minipage}	
+\end{table}	
+
+
+%%%%%%%%%%%%
+% TABLE SI10  %
+%%%%%%%%%%%%
+\begin{table}[!htt]
+	\centering
+	\caption{\sc{OLS and IV estimates controlling for age effects}}
+	\label{table: age effects}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{5cm}C{2.8cm}C{2.8cm}C{2.8cm}C{2.8cm}C{2.8cm}C{2.8cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV)&(V)&(VI) \\
+			\cmidrule(r){2-3} \cmidrule(r){4-5}  \cmidrule(r){6-7} \\
+			&\multicolumn{2}{c}{Age Effects (1800--1875 sample) } & 	\multicolumn{2}{c}{IV Estimates (full sample)} & 	\multicolumn{2}{c}{OLS Estimates (full sample)}  \\
+			\vspace{0.5cm}
+			&\multicolumn{6}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-7}	
+			\input{table_age_robustness_sg_log_interaction_norm.tex}
+			\vspace{0.2cm}
+			&\multicolumn{6}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-7}	
+			\input{table_age_robustness_sg_social_homedwell.tex}
+			\vspace{0.2cm}	
+			&\multicolumn{6}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-7}
+			\input{table_age_robustness_outcome_mob_GHG_all_trips.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+			Metro \& State Fixed Effects & & \checkmark && \checkmark &&  \checkmark \\
+			Geography &  &\checkmark && \checkmark && \checkmark  \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.--- Table reports IV estimates of the relationship between GCD and neighborhood outcomes, controlling for age effects. Columns 1?2 report estimates of neighborhood age effects using the subsample of neighborhoods developed before 1875, a period with minimal variation in GCD. CColumn 1 controls for distance to the main city center using 5-km distance-bin dummies. Column 2 adds geographic controls (elevation, slope, ecological regions, latitude, and longitude) as well as metropolitan area and state fixed effects. Columns 3?6 report age-adjusted estimates for the full sample. Outcomes are adjusted by subtracting the estimated age component, computed as $\textrm{Outcome}_{ims} - \widehat\beta_a\;\textrm{Age}_{ims},$ where $\widehat\beta_a$ is obtained from the corresponding specification in Columns 1?2. Columns 3?4 present IV estimates using historical development cohorts as instruments for GCD adoption, and Columns 5?6 present the corresponding OLS estimates. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}								
+	\end{minipage}	
+\end{table}			
+
+
+%%%%%%%%%%%%
+% TABLE SI11  %
+%%%%%%%%%%%%
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{OLS and IV estimates of the relationship between GCD and neighborhood outcomes restricted to low-migration neighborhoods}}
+	\label{table: low migration}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{6.5cm}C{3.5cm}C{3.5cm}C{3.5cm}C{3.5cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV) \\
+			\cmidrule(r){2-3} \cmidrule(r){4-5} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{2}{c}{IV Estimates}  \\
+			\vspace{0.5cm}
+			&\multicolumn{4}{c}{\sc{Panel I. Dependent Variable: Log Social isolation}}\\\cmidrule(r){2-5}
+			\input{table_low_migration_sg_log_interaction_norm.tex}
+			&\multicolumn{4}{c}{\sc{Panel II. Dependent Variable: Daily Time at Home (minutes)}}\\\cmidrule(r){2-5}
+			\input{table_low_migration_sg_social_homedwell.tex}	
+			&\multicolumn{4}{c}{\sc{Panel III. Dependent Variable: Annual GHG (metric tons)}}\\\cmidrule(r){2-5}
+			\input{table_low_migration_outcome_mob_GHG_all_trips.tex}
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark &  \checkmark &  \checkmark &  \checkmark\\
+			Geography &  & \checkmark &  & \checkmark\\
+			State \& Metro Fixed Effects &  & \checkmark   &  & \checkmark \\
+			\\\bottomrule
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.--- Table reports OLS and IV estimates of the relationship between GCD and neighborhood outcomes for neighborhoods located in low-migration counties. The sample is restricted to counties in the bottom 50\% of the national migration-rate distribution, based on IRS migration data. Columns 1 and 3 control for location using 5-km distance-bin dummies to the main city within each neighborhood?s metropolitan area. Columns 2 and 4 add geographic controls (elevation, slope, ecological regions, latitude, and longitude) as well as metropolitan area and state fixed effects. Columns 1?2 report OLS estimates, and Columns 3?4 report IV estimates using historical development cohorts as instruments for GCD adoption. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.
+		}								
+	\end{minipage}	
+\end{table}	
+
+	
+	
+%%%%%%%%%%%%
+% TABLE SI12  %
+%%%%%%%%%%%%
+\begin{table}[!ht]
+	\centering
+	\caption{\sc{Estimates of Garden Design on Social and Environmental Outcomes at the Census Tract Level}\label{table: tract level}}
+	\resizebox{1\textwidth}{!}{\begin{tabular}{L{6.5cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}}\toprule\toprule
+			\vspace{0.5cm}
+			&(I) &(II)&(III)&(IV)&(V)\\
+			\cmidrule(r){2-3} \cmidrule(r){4-4}  \cmidrule(r){5-6} \\
+			&\multicolumn{2}{c}{OLS Estimates} & 	\multicolumn{1}{c}{Propensity Score} & 	\multicolumn{2}{c}{IV Estimates}   \\
+			\vspace{0.5cm}
+			&\multicolumn{5}{c}{\sc{Panel I. Dependent Variable:  Log Social isolation}}\\\cmidrule(r){2-6}	
+			\input{table_tract_level_sg_log_interaction_norm.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel II. Dependent Variable:  Daily Time at Home (minutes)}}\\\cmidrule(r){2-6}	
+			\input{table_tract_level_sg_social_homedwell.tex}
+			\vspace{0.2cm}
+			&\multicolumn{5}{c}{\sc{Panel III. Dependent Variable:  Annual GHG (metric tons)}}\\\cmidrule(r){2-6}
+			\input{table_tract_level_outcome_mob_GHG_all_trips.tex}	
+			\\
+			\textsl{Controls:}\\
+			Distance &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+			Geography &  & \checkmark & \checkmark & & \checkmark \\
+			State \& Metro Fixed Effects &  & \checkmark  & \checkmark & & \checkmark \\ 
+			\\\bottomrule 
+	\end{tabular}}
+	\begin{minipage}{1\linewidth}												
+		\scriptsize \textsl{Note.---Table replicates the baseline analysis reported in Table 2 using Census Tracts as the unit of analysis instead of Census Block Groups. Neighborhoods in the top 20\% of the GCD distribution are classified as ``high GCD.'' Columns 1?2 report OLS estimates controlling for location using 5-km distance-bin dummies to the main city within each metropolitan area; Column 2 adds geographic controls (elevation, slope, ecological regions, latitude, and longitude) as well as metropolitan area and state fixed effects. Column 3 reports estimates from propensity score matching using inverse propensity score reweighting, with propensity scores estimated using the covariates from Column 2. Columns 4?5 report IV estimates corresponding to Columns 1?2, using historical development cohorts as instruments for GCD adoption. All reported coefficients are estimated using population-weighted regressions. Robust standard errors, adjusted for clustering by county, are reported in parentheses. Statistical significance is assessed using two-sided t-tests on regression coefficients. Coefficients with *** are significant at the 1\% confidence level; with ** at the 5\% level; and with * at the 10\% level.}								
+	\end{minipage}	
+\end{table}	
+
+\end{document}

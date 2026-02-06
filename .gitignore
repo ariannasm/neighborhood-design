@@ -1,0 +1,19 @@
+# Data files - too large for GitHub
+data/raw/
+
+# System files
+.DS_Store
+*.DS_Store
+
+# Stata temporary files
+*.log
+*.smcl
+
+# R temporary files
+.Rhistory
+.RData
+.Rproj.user/
+
+# Editor files
+*.swp
+*~
