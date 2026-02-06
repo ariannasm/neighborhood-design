@@ -31,15 +31,7 @@ After downloading, place the contents in `data/raw/` so that the folder structur
 
 ### Restricted Data (Figures SI1 and SI6)
 
-Figures SI1 and SI6 require additional data that cannot be redistributed due to licensing restrictions. To reproduce these figures, you must obtain the following files from the original authors and place them in `data/raw/`:
-
-- `wheeler_join_neigh_bycentroid.csv` — from Wheeler (2008)
-- `talen_join_neigh_bycentroid.csv` — from Talen (2022)
-- `GSpoints.*` (shapefile) — from Talen (2022)
-- `Table_TownPlanning.csv` — USHC historical records
-- `Table_HousingNeedProvision.csv` — USHC historical records
-
-All other tables and figures replicate fully without these files.
+Figures SI1 and SI6 require neighborhood location data from Wheeler (2008) and Talen (2022) that cannot be redistributed. To reproduce these figures, researchers must obtain the original data directly from the authors. All other tables and figures replicate fully without these data.
 
 ## Software Requirements
 

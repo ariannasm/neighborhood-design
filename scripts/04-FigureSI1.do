@@ -6,13 +6,9 @@
 *   typologies (Wheeler, Talen) and USHC historical projects.
 *
 * DATA AVAILABILITY NOTE:
-*   This script requires data that cannot be redistributed.
-*   You must obtain the following files from the original authors
-*   and place them in data/raw/:
-*     - wheeler_join_neigh_bycentroid.csv  (Wheeler, 2008)
-*     - talen_join_neigh_bycentroid.csv    (Talen, 2022)
-*     - Table_TownPlanning.csv             (USHC historical records)
-*     - Table_HousingNeedProvision.csv     (USHC historical records)
+*   This script requires neighborhood location data from Wheeler (2008)
+*   and Talen (2022) that cannot be redistributed. To reproduce this
+*   figure, obtain the original data directly from the authors.
 *
 * Inputs (from data/raw):
 *   - wheeler_join_neigh_bycentroid.csv
