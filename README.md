@@ -42,17 +42,19 @@ Figures SI1 and SI6 require neighborhood location data from Wheeler (2008) and T
 
 ### Setup
 
-Before running any script, update the file path at the top of each script to point to your local copy of this replication folder. Each script contains:
+Before running the scripts, update the replication path to point to your local copy of this folder:
+
+**Stata scripts:** Update the path **only in `scripts/Executer.do`** — all other `.do` scripts inherit it automatically:
 
 ```stata
-* UPDATE THIS PATH to your local Replication folder
+* UPDATE THIS PATH ONLY (all individual scripts inherit it from here)
 global replication_path "/path/to/Replication"
 ```
 
-or for R scripts:
+**R scripts:** Update `replication_path` at the top of each R script individually:
 
 ```r
-# UPDATE THIS PATH to your local Replication folder
+# Set the base path to the replication folder
 replication_path <- "/path/to/Replication"
 ```
 
