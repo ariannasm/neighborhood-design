@@ -35,8 +35,10 @@ Figures SI1 and SI6 require neighborhood location data from Wheeler (2008) and T
 
 ## Software Requirements
 
-- **Stata** (version 15 or later)
-- **R** (version 4.0 or later) with the following packages: `ggplot2`, `sf`, `tidyverse`
+- **Stata** (version 15 or later) with the following user-written packages (install via `ssc install`):
+  `reghdfe`, `ivreghdfe`, `estout`, `labmask`
+- **R** (version 4.0 or later) with the following packages:
+  `tidyverse`, `sf`, `ggplot2`, `tmap`, `tmaptools`, `OpenStreetMap`, `scales`, `dplyr`, `ggspatial`, `maps`, `extrafont`, `grid`, `gridExtra`, `haven`
 
 ## How to Run
 

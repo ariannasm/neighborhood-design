@@ -10,14 +10,14 @@ library(sf)
 library(ggplot2)
 library(maps)
 
-# Set project path
+# Set the base path to the replication folder
 # UPDATE THIS PATH to your local Replication folder
-project <- "/path/to/Replication"
+replication_path <- "/path/to/Replication"
 
 # -------------------------------------------------------- #
 #                       Load data
 # -------------------------------------------------------- #
-urb <- st_read(file.path(project, "data/raw"),
+urb <- st_read(file.path(replication_path, "data/raw"),
                layer = "BUI2000_focal_vect_large")
 
 # US states basemap
@@ -57,5 +57,5 @@ gg <- ggplot() +
     legend.margin = margin(0, 0, 0, 0)
   )
 
-ggsave(file.path(project, "figures/fig_SI4.pdf"),
+ggsave(file.path(replication_path, "figures/fig_SI4.pdf"),
        plot = gg, width = 9, height = 6.6, units = "in")
