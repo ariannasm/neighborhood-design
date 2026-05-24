@@ -27,14 +27,14 @@ set more off
 * Setup: Set replication path (MODIFY THIS PATH FOR YOUR SYSTEM)
 * ------------------------------------------------------------------
 
-* UPDATE THIS PATH to the parent of the Replication folder (i.e., the folder that contains Replication/)
-global replication_path "/path/to/parent/of/Replication"
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 * Define subdirectories
-global convex_hulls "${replication_path}/Replication/data/raw/street_convex_hulls"
-global network_components "${replication_path}/Replication/data/raw/street_network_components"
-global block_angles "${replication_path}/Replication/data/raw/turning_distance_of_blocks"
-global data_raw "${replication_path}/Replication/data/raw"
+global convex_hulls "${replication_path}/data/raw/street_convex_hulls"
+global network_components "${replication_path}/data/raw/street_network_components"
+global block_angles "${replication_path}/data/raw/turning_distance_of_blocks"
+global data_raw "${replication_path}/data/raw"
 
 * ==================================================================
 * SECTION 1: Create empty placeholder dataset

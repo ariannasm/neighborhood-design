@@ -28,8 +28,8 @@ set more off
 * Setup: Define paths (MODIFY THIS PATH FOR YOUR SYSTEM)
 * ------------------------------------------------------------------
 
-* UPDATE THIS PATH to your local Replication folder
-global replication_path "/path/to/Replication"
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 global data_clean "${replication_path}/data/clean"
 global tables "${replication_path}/tables"
@@ -209,7 +209,7 @@ foreach yvar in garden_metric_osm_d garden_metric_osm {
               fmt(%7.0f %7.2f %7.2f %7.2f) ///
               labels("Observations" "Total R-squared" "GCD National Waves" ///
                      "All local determinants")) ///
-        nolabel replace mlabels(none) collabels(none) ///
+        nolabel replace mlabels(none) collabels(none) eqlabels(, none) ///
         starlevels(\$^{*}\$ .1 \$^{**}\$ .05 \$^{***}\$ .01) ///
         keep("") ///
         order("")

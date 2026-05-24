@@ -26,8 +26,8 @@ set more off
 * Setup: Set replication path (MODIFY THIS PATH FOR YOUR SYSTEM)
 * ------------------------------------------------------------------
 
-* UPDATE THIS PATH to your local Replication folder
-global replication_path "/path/to/Replication"
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 * Define subdirectories
 global data_clean "${replication_path}/data/clean"
@@ -201,14 +201,57 @@ foreach yvar in sg_log_interaction_norm sg_social_homedwell outcome_mob_GHG_all_
     * ------------------------------------------------------------------
     
     frame results {
-        
+
         * Smooth results with rolling mean (+/- 2 bins)
         rangestat (mean) mean_high mean_var mean_low, interval(bins -2 2)
-        
+
         * Merge population weights
         merge 1:1 bins using `pop', nogenerate
         sort bins
-        
+
+        * ------------------------------------------------------------------
+        * Print integrated quantities used in the body text on p.12:
+        *   "Suburbanization as a whole is associated with..."
+        *   "GCD accounts for ... of higher social isolation..."
+        * ------------------------------------------------------------------
+        qui sum mean_var_mean if bins == 0
+        local mean_at_zero = r(mean)
+        qui sum mean_low_mean if bins == 0
+        local low_at_zero = r(mean)
+
+        * Unweighted average across the 40 plotted bins
+        qui sum mean_var_mean
+        local avg_mean_unw = r(mean)
+        qui sum mean_low_mean
+        local avg_low_unw  = r(mean)
+
+        * Population-weighted average across the 40 plotted bins
+        qui sum mean_var_mean [aw=census2000blkgp_dem_total_pop]
+        local avg_mean_pw = r(mean)
+        qui sum mean_low_mean [aw=census2000blkgp_dem_total_pop]
+        local avg_low_pw  = r(mean)
+
+        di _n "==== INTEGRATED VALUES FOR $depvar ===="
+        di "Mean(0)                            = " %9.4f `mean_at_zero'
+        di "Low(0)                             = " %9.4f `low_at_zero'
+        di "Mean(39) [endpoint of orange line] = " %9.4f mean_var_mean[40]
+        di "Low(39)  [endpoint of low line]    = " %9.4f mean_low_mean[40]
+        di "------------------------------------------------"
+        di "UNWEIGHTED averages over bins 0-39:"
+        di "  avg Mean                         = " %9.4f `avg_mean_unw'
+        di "  avg Low                          = " %9.4f `avg_low_unw'
+        di "  avg(Mean-Low)  [GCD-attributable]= " %9.4f `avg_mean_unw' - `avg_low_unw'
+        di "  avg(Mean-Mean(0))  [suburb cost] = " %9.4f `avg_mean_unw' - `mean_at_zero'
+        di "  avg(Mean-Low(0))  [vs no-GCD@0]  = " %9.4f `avg_mean_unw' - `low_at_zero'
+        di "------------------------------------------------"
+        di "POPULATION-WEIGHTED averages over bins 0-39:"
+        di "  avg Mean (pop-wt)                = " %9.4f `avg_mean_pw'
+        di "  avg Low  (pop-wt)                = " %9.4f `avg_low_pw'
+        di "  avg(Mean-Low) (pop-wt)           = " %9.4f `avg_mean_pw' - `avg_low_pw'
+        di "  avg(Mean-Mean(0)) (pop-wt)       = " %9.4f `avg_mean_pw' - `mean_at_zero'
+        di "  avg(Mean-Low(0))  (pop-wt)       = " %9.4f `avg_mean_pw' - `low_at_zero'
+        di "==== END ===="
+
         * Create figure
         twoway (connected mean_high_mean bins, color(${blue_dark}) msymbol(circle) msize(small)) ///
                (connected mean_var_mean bins, color(${orange_dark}) msymbol(circle) msize(small)) ///
@@ -229,6 +272,8 @@ foreach yvar in sg_log_interaction_norm sg_social_homedwell outcome_mob_GHG_all_
             title("{bf:`thisLetter'}", justification(left) position(11) size(6) span) ///
             name(p1$depvar, replace)
     }
+	
+
 }
 
 * ==================================================================

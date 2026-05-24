@@ -7,8 +7,9 @@
 ==============================================================================*/
 
 clear all
-* UPDATE THIS PATH to your local Replication folder
-global project "/path/to/Replication"
+
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 * Colors
 global orange_dark "243 102 40"
@@ -17,7 +18,7 @@ global blue_dark "51 48 99"
 * -------------------------------------------------------- *
         * Compute mean + CI for Share Residential *
 * -------------------------------------------------------- *
-use "$project/data/clean/us_data_matching.dta", clear
+use "${replication_path}/data/clean/us_data_matching.dta", clear
 
 gen year_5 = floor(first_year_built/5)*5
 
@@ -35,7 +36,7 @@ save `bd', replace
 * -------------------------------------------------------- *
         * Compute mean + CI for GCD *
 * -------------------------------------------------------- *
-use "$project/data/clean/us_data_matching.dta", clear
+use "${replication_path}/data/clean/us_data_matching.dta", clear
 
 gen year_5 = floor(first_year_built/5)*5
 
@@ -79,4 +80,4 @@ twoway ///
     graphregion(color(white)) bgcolor(white) ///
     plotregion(lcolor(black) lwidth(thin))
 
-graph export "$project/figures/fig_SI3.pdf", as(pdf) replace
+graph export "${replication_path}/figures/fig_SI3.pdf", as(pdf) replace

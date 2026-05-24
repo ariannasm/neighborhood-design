@@ -31,8 +31,8 @@ set more off
 * Setup: Set replication path (MODIFY THIS PATH FOR YOUR SYSTEM)
 * ------------------------------------------------------------------
 
-* UPDATE THIS PATH to your local Replication folder
-global replication_path "/path/to/Replication"
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 * Define subdirectories
 global data_raw "${replication_path}/data/raw"

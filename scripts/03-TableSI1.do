@@ -32,8 +32,8 @@ set more off
 * Setup: Define paths (MODIFY THIS PATH FOR YOUR SYSTEM)
 * ------------------------------------------------------------------
 
-* UPDATE THIS PATH to your local Replication folder
-global replication_path "/path/to/Replication"
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 global data_clean "${replication_path}/data/clean"
 global tables "${replication_path}/tables"
@@ -176,7 +176,7 @@ foreach yvar in outcome_walk_index log_outcome_poi_total_norm outcome_mob_GHG_co
         cells(b(star fmt(%9.3f)) se(par)) ///
         stats(N_full r2 widstat, fmt(%7.0f %7.2f %7.2f) ///
               labels("Observations" "R-squared" "F-Stat")) ///
-        nolabel replace mlabels(none) collabels(none) ///
+        nolabel replace mlabels(none) collabels(none) eqlabels(, none) ///
         starlevels(\$^{*}\$ .1 \$^{**}\$ .05 \$^{***}\$ .01) ///
         keep(${gdi}) ///
         order(${gdi})

@@ -7,8 +7,9 @@
 ==============================================================================*/
 
 clear all
-* UPDATE THIS PATH to your local Replication folder
-global project "/path/to/Replication"
+
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 * Colors
 global blue_dark "51 48 99"
@@ -16,7 +17,7 @@ global blue_dark "51 48 99"
 * -------------------------------------------------------- *
                     * Load data *
 * -------------------------------------------------------- *
-use "$project/data/clean/us_data_matching.dta", clear
+use "${replication_path}/data/clean/us_data_matching.dta", clear
 
 * Keep only neighborhoods within 45 km of city center
 keep if dist_2000_city_altpop_km <= 45
@@ -46,4 +47,4 @@ twoway (bar share first_year_built, fcolor("${blue_dark}") lwidth(none) barwidth
     xtitle("Year of development", size(5)) ///
     ytitle("Share of neighborhoods developed", size(5))
 
-graph export "$project/figures/fig_SI7.pdf", as(pdf) replace
+graph export "${replication_path}/figures/fig_SI7.pdf", as(pdf) replace

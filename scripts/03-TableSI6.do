@@ -29,8 +29,8 @@ set more off
 * Setup: Define paths (MODIFY THIS PATH FOR YOUR SYSTEM)
 * ------------------------------------------------------------------
 
-* UPDATE THIS PATH to your local Replication folder
-global replication_path "/path/to/Replication"
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 global data_clean "${replication_path}/data/clean"
 global tables "${replication_path}/tables"

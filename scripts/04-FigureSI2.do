@@ -7,8 +7,9 @@
 ==============================================================================*/
 
 clear all
-* UPDATE THIS PATH to your local Replication folder
-global project "/path/to/Replication"
+
+* UPDATE THIS PATH only when running this script standalone (Executer.do sets it for the full pipeline)
+if "${replication_path}" == "" global replication_path "/path/to/Replication"
 
 * Colors
 global orange_dark "243 102 40"
@@ -17,7 +18,7 @@ global blue_dark "51 48 99"
 * -------------------------------------------------------- *
                     * Load data *
 * -------------------------------------------------------- *
-use "$project/data/clean/us_data_matching.dta", clear
+use "${replication_path}/data/clean/us_data_matching.dta", clear
 
 * -------------------------------------------------------- *
                 * Create required variables *
@@ -68,4 +69,4 @@ teffects overlap, ptl(1) ///
            keygap(*.5) rowgap(*.1) size(3) symxsize(*.5)) ///
     xsize(5) ysize(5) scale(1)
 
-graph export "$project/figures/fig_SI2.pdf", as(pdf) replace
+graph export "${replication_path}/figures/fig_SI2.pdf", as(pdf) replace

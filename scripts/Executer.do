@@ -12,9 +12,11 @@
 clear all
 set more off
 
-* Set root directory (update this path to your local replication folder)
-global root "."
-global scripts "${root}/scripts"
+* ==================================================================
+* UPDATE THIS PATH ONLY (all individual scripts inherit it from here)
+* ==================================================================
+global replication_path "/Users/arianna/YSE Dropbox/Arianna Salazar Miranda/GCDesign/_OtherNeighborhoodDefinitions/Replication"
+global scripts          "${replication_path}/scripts"
 
 * ==================================================================
 * SECTION 0: Data Construction
